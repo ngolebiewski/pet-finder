@@ -16,9 +16,10 @@ app.get('/api/v1/pets', (req, res) => {
   res.send(pets);
 } )
 
-//GET - pet by owner name via QUERY - '/api/v1/pets/owner' anf use req.query to find owner
+//GET - pet by owner name via QUERY - '/api/v1/pets/owner' and use req.query to find owner (use filter)
+  //This needs to go about the "pet by name" section to work in the server code because otherwise the :name will always be called.
+  //use "?owner=Jane" as the query format
 app.get('/api/v1/pets/owner', (req, res) => {
-  //use "?owner=Jane" as your format
   const { owner } = req.query;
   const petsOfOwner = pets.filter((pet) => pet.owner === owner);
   res.send(petsOfOwner);
